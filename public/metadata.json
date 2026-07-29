@@ -1,0 +1,38 @@
+{
+  "name": "PowerChain",
+  "symbol": "PWRC",
+  "description": "Native utility, settlement, staking and governance token of the PowerChain Protocol.",
+  "image": "./assets/tokens/pwrc.png",
+  "external_url": "https://powerchain.energy",
+  "attributes": [
+    {
+      "trait_type": "Network",
+      "value": "Solana"
+    },
+    {
+      "trait_type": "Standard",
+      "value": "SPL Token-2022"
+    },
+    {
+      "trait_type": "Decimals",
+      "value": 9
+    },
+    {
+      "trait_type": "Maximum Supply",
+      "value": "18440000000"
+    },
+    {
+      "trait_type": "Inflation",
+      "value": "None"
+    }
+  ],
+  "properties": {
+    "category": "token",
+    "files": [
+      {
+        "uri": "https://powerchain.ai/assets/tokens/pwrc.png",
+        "type": "image/png"
+      }
+    ]
+  }
+}
