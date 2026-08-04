@@ -1,0 +1,40 @@
+{
+  "name": "@powerchain/standards",
+  "version": "1.0.0-rc.0",
+  "private": true,
+  "type": "module",
+  "description": "Frozen machine-readable PowerChain protocol standards and conformance helpers",
+  "license": "Apache-2.0",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./ptk-001": {
+      "types": "./dist/ptk-001.d.ts",
+      "import": "./dist/ptk-001.js"
+    },
+    "./ppay-001": {
+      "types": "./dist/ppay-001.d.ts",
+      "import": "./dist/ppay-001.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^7.0.2"
+  },
+  "homepage": "https://docs.powerchain.energy/standards"
+}

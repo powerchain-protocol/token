@@ -2,11 +2,18 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist",
-    "noEmit": false,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true
+    "noEmit": true,
+    "types": [
+      "node"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@powerchain/standards": [
+        "../standards/src/index.ts"
+      ]
+    }
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts"
+  ]
 }

@@ -10,7 +10,7 @@ import {
   type Commitment,
   type ConfirmOptions,
 } from "@solana/web3.js";
-import idl from "../../../idl/powerchain.json" with { type: "json" };
+import idl from "../../../programs/native-token/idl/powerchain.json" with { type: "json" };
 import { PLACEHOLDER_PROGRAM_ID } from "./constants.js";
 
 export interface CreatePowerChainProgramOptions {

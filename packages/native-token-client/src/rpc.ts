@@ -30,7 +30,7 @@ export class PowerChainRpcError extends Error {
 
 export class PowerChainRpcClient {
   readonly #http: AxiosInstance;
-  readonly #apiKey?: string;
+  readonly #apiKey: string | undefined;
   readonly #maximumRetries: number;
   #requestId = 0;
 
@@ -71,8 +71,8 @@ export class PowerChainRpcClient {
 
     const id = ++this.#requestId;
     const config: AxiosRequestConfig = {
-      signal,
-      headers: this.#apiKey ? { Authorization: `Bearer ${this.#apiKey}` } : undefined,
+      ...(signal ? { signal } : {}),
+      ...(this.#apiKey ? { headers: { Authorization: `Bearer ${this.#apiKey}` } } : {}),
     };
 
     for (let attempt = 0; ; attempt += 1) {

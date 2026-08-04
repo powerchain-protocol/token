@@ -71,6 +71,7 @@ export function parsePtk001Error(error: unknown): Ptk001ProgramError | null {
   if (!match) return null;
 
   const raw = match[1];
+  if (raw === undefined) return null;
   const code = raw.toLowerCase().startsWith("0x")
     ? Number.parseInt(raw.slice(2), 16)
     : Number.parseInt(raw, 10);

@@ -24,7 +24,7 @@ test("Metaplex and Token-2022 metadata preserve PWRC identity", async()=>{
 });
 
 test("IDL remains explicitly non-deployed", async()=>{
- const idl=await readJson("idl/powerchain.json");
+ const idl=await readJson("programs/native-token/idl/powerchain.json");
  assert.equal(idl.address,"11111111111111111111111111111111");
  assert.match(idl.metadata.description,/placeholder address is not a deployment/i);
 });

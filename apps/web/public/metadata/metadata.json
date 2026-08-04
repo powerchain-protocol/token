@@ -1,0 +1,65 @@
+{
+  "specification": "PTK-001",
+  "version": "1.0.0-rc.0",
+  "name": "PowerChain",
+  "symbol": "PWRC",
+  "decimals": 9,
+  "description": "PWRC is the fixed-supply native economic asset defined by PTK-001.",
+  "mint": "PWRCRXXZxbg6FdQZfK3PMD7KP8xfxs9acvifJiG46wc",
+  "tokenProgram": "Token-2022",
+  "tokenProgramId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+  "genesisSupply": "18446000000",
+  "maximumSupply": "18446000000",
+  "transferFeeBasisPoints": 250,
+  "maximumTransferFeeTokens": "1000000",
+  "image": "https://powerchain.energy/assets/token/pwrc.png",
+  "imageSvg": "https://powerchain.energy/assets/token/pwrc.svg",
+  "metadataUri": "https://powerchain.energy/metadata/metaplex.json",
+  "website": "https://powerchain.energy",
+  "documentation": "https://docs.powerchain.energy",
+  "standard": "https://docs.powerchain.energy/standards/ptk-001",
+  "whitepaper": "https://whitepaper.powerchain.energy",
+  "assetClass": "fungible",
+  "transferable": true,
+  "tradeable": true,
+  "productionDeployment": false,
+  "extensions": [
+    "TransferFeeConfig",
+    "MetadataPointer",
+    "TokenMetadata"
+  ],
+  "socials": {
+    "x": "https://x.com/powerchain_ai",
+    "telegram": "https://t.me/powerchain_official"
+  },
+  "properties": {
+    "specification": "PTK-001",
+    "tokenProgram": "Token-2022",
+    "extensions": [
+      "TransferFeeConfig",
+      "MetadataPointer",
+      "TokenMetadata"
+    ],
+    "assetClass": "fungible",
+    "transferable": true,
+    "tradeable": true,
+    "documentation": "https://docs.powerchain.energy"
+  },
+  "genesisSupplyBaseUnits": "18446000000000000000",
+  "maximumSupplyBaseUnits": "18446000000000000000",
+  "postGenesisMint": false,
+  "transferFeePercent": "2.50",
+  "content": {
+    "metadataUri": "https://powerchain.energy/metadata/metaplex.json",
+    "image": "https://powerchain.energy/assets/token/pwrc.png",
+    "imageSvg": "https://powerchain.energy/assets/token/pwrc.svg",
+    "contentTypes": {
+      "metadata": "application/json",
+      "png": "image/png",
+      "svg": "image/svg+xml"
+    }
+  },
+  "integrity": {
+    "sourceSha256": "4bb2b179704fd4fc68dfef33245d29b3025dc7c177c9ab539a08101ea2004c60"
+  }
+}

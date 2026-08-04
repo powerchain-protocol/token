@@ -1,0 +1,62 @@
+[workspace]
+resolver = "2"
+members = [
+  "programs/native-token",
+  "programs/powerpay",
+]
+default-members = [
+  "programs/native-token",
+  "programs/powerpay",
+]
+
+[workspace.package]
+version = "1.0.0-rc.0"
+edition = "2021"
+rust-version = "1.84"
+license = "Apache-2.0"
+publish = false
+
+[workspace.dependencies]
+pinocchio = { version = "0.11.2", default-features = false }
+pinocchio-log = { version = "0.5" }
+pinocchio-token-2022 = { version = "0.1" }
+proptest = { version = "1", default-features = false, features = ["std"] }
+serde_json = { version = "1" }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+correctness = { level = "deny", priority = -1 }
+suspicious = { level = "deny", priority = -1 }
+perf = { level = "warn", priority = -1 }
+panic = "deny"
+unwrap_used = "deny"
+expect_used = "deny"
+
+[profile.dev]
+overflow-checks = true
+debug = 1
+incremental = true
+
+[profile.test]
+overflow-checks = true
+debug = 1
+incremental = true
+
+[profile.release]
+opt-level = "z"
+codegen-units = 1
+lto = "fat"
+overflow-checks = true
+panic = "abort"
+strip = "symbols"
+debug = 0
+incremental = false
+
+[profile.release.build-override]
+opt-level = 3
+codegen-units = 1
+debug = false
+incremental = false

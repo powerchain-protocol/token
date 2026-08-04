@@ -49,10 +49,10 @@ export function buildExplorerUrl(input: {
 }
 
 export const getPwrcTokenExplorerUrl = (mint: string, cluster?: SolanaCluster): string =>
-  buildExplorerUrl({ entity: "token", value: mint, cluster });
+  buildExplorerUrl({ entity: "token", value: mint, ...(cluster ? { cluster } : {}) });
 
 export const getTransactionExplorerUrl = (signature: string, cluster?: SolanaCluster): string =>
-  buildExplorerUrl({ entity: "transaction", value: signature, cluster });
+  buildExplorerUrl({ entity: "transaction", value: signature, ...(cluster ? { cluster } : {}) });
 
 export const getAccountExplorerUrl = (address: string, cluster?: SolanaCluster): string =>
-  buildExplorerUrl({ entity: "account", value: address, cluster });
+  buildExplorerUrl({ entity: "account", value: address, ...(cluster ? { cluster } : {}) });

@@ -1,0 +1,45 @@
+{
+  "name": "@powerchain/faucet",
+  "version": "1.0.0-rc.0",
+  "private": true,
+  "type": "module",
+  "description": "Policy-enforced Solana devnet faucet for PowerChain test token tPWRC",
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "clean": "rm -rf dist",
+    "start": "node dist/src/server.js",
+    "dev": "node ../../scripts/run-tsx.mjs --cwd apps/faucet watch src/server.ts",
+    "build:deps": "pnpm --filter @powerchain/standards build && pnpm --filter @powerchain/native-token-client build",
+    "prebuild": "pnpm run build:deps",
+    "pretypecheck": "pnpm run build:deps",
+    "dev:debug": "FAUCET_DEBUG_MODE=true NODE_ENV=development node ../../scripts/run-tsx.mjs --cwd apps/faucet watch src/server.ts",
+    "start:debug": "FAUCET_DEBUG_MODE=true NODE_ENV=development node dist/src/server.js"
+  },
+  "dependencies": {
+    "@powerchain/native-token-client": "workspace:*",
+    "@solana/spl-token": "^0.4.15",
+    "@solana/web3.js": "^1.98.4",
+    "@powerchain/standards": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "tsx": "^4.20.6",
+    "@types/node": "^24.0.0"
+  },
+  "homepage": "https://docs.powerchain.energy"
+}

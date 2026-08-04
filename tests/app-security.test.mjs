@@ -2,9 +2,9 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const security = await readFile(new URL("../app/lib/security.ts", import.meta.url), "utf8");
-const context = await readFile(new URL("../app/components/provider/wallet-context.tsx", import.meta.url), "utf8");
-const mint = await readFile(new URL("../app/components/mint-account.tsx", import.meta.url), "utf8");
+const security = await readFile(new URL("../apps/web/lib/security.ts", import.meta.url), "utf8");
+const context = await readFile(new URL("../apps/web/components/provider/wallet-context.tsx", import.meta.url), "utf8");
+const mint = await readFile(new URL("../apps/web/components/mint-account.tsx", import.meta.url), "utf8");
 
 test("wallet proof is domain, chain, nonce, request and expiry bound", () => {
   for (const marker of ["domain", "solana:mainnet-beta", "Nonce:", "Request ID:", "Expiration Time:"]) {

@@ -3,7 +3,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 const root = path.resolve(import.meta.dirname, "..");
 const files = [
-  "idl/powerchain.json",
+  "programs/native-token/idl/powerchain.json",
   "public/metadata/metadata.json",
   "public/metadata/metaplex.json",
   "public/assets/token/pwrc.png",

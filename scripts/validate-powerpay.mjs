@@ -1,6 +1,7 @@
 import fs from "node:fs";
+import { REPO_ROOT } from "./lib/repo-root.mjs";
 import path from "node:path";
-const root=process.cwd();
+const root=REPO_ROOT;
 const config=JSON.parse(fs.readFileSync(path.join(root,"config/powerpay.json"),"utf8"));
 const read=(p)=>fs.readFileSync(path.join(root,p),"utf8");
 const fail=(m)=>{throw new Error(m)};
@@ -19,13 +20,13 @@ if(config.program.programId!=="TBA"||config.program.productionDeployment!==false
 const lib=read("programs/powerpay/src/lib.rs");
 const processor=read("programs/powerpay/src/processor.rs");
 const instruction=read("programs/powerpay/src/instruction.rs");
-if(!lib.includes('VERSION: &str = "1.0.0-rc.1"'))fail("PowerPay Rust version must be rc.1");
+if(!lib.includes('VERSION: &str = "1.0.0-rc.0"'))fail("PowerPay Rust version must be rc.1");
 if(!lib.includes("pub use instruction::{PowerPayInstruction"))fail("PowerPayInstruction must be exported");
 if(!instruction.includes("INSTRUCTION_VERSION: u8 = 1"))fail("PowerPay instruction ABI must be versioned");
 if(!instruction.includes("MAX_INSTRUCTION_DATA_LEN: usize = 128"))fail("PowerPay instruction data must be bounded");
 for(const roleCheck of ["context.signer != merchant","context.signer != payment.payer","context.signer != payment.merchant"]){if(!processor.includes(roleCheck))fail(`missing role check: ${roleCheck}`)}
 
-const cors=read("app/lib/cors.ts");
+const cors=read("apps/web/lib/cors.ts");
 for(const origin of ["https://api.powerchain.energy","https://payments.powerchain.energy"]){if(!cors.includes(origin))fail(`CORS source missing ${origin}`)}
 for(const constant of ["POWERPAY_PUBLIC_URL","POWERPAY_API_URL"]){if(!lib.includes(constant))fail(`PowerPay Rust constant missing: ${constant}`)}
 console.log("✓ PowerPay policy and Rust program validated");

@@ -38,3 +38,7 @@ pnpm validate:powerpay
 | Documentation | `https://docs.powerchain.energy` | Protocol and integration docs |
 
 The program ID remains `TBA` until a verified mainnet-beta deployment is completed. Domains are service identifiers only and never substitute for on-chain program IDs or authorities.
+
+## Optimized build profile
+
+Program release builds use one codegen unit, fat LTO, overflow checks, panic abort, symbol stripping, size optimization, and a shared root Cargo target directory. Run program commands from the repository root so toolchain checks and artifact paths remain deterministic. Source validation does not imply deployment or audit completion.

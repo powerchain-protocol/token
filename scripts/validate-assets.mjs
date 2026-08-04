@@ -9,7 +9,7 @@ const required = [
   "public/metadata/metadata.json",
   "public/metadata/metaplex.json",
   "programs/native-token/metadata/token-2022.json",
-  "idl/powerchain.json",
+  "programs/native-token/idl/powerchain.json",
 ];
 for (const file of required) await access(path.join(root, file), constants.R_OK);
 

@@ -2,7 +2,11 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "strict": true,
@@ -22,6 +26,19 @@
     "allowJs": false,
     "noEmit": true
   },
-  "include": ["packages/**/*.ts", "client/**/*.ts", "components/**/*.tsx", "scripts/**/*.mjs", "tests/**/*.mjs"],
-  "exclude": ["node_modules", "dist", "target", ".turbo"]
+  "include": [
+    "apps/**/*.ts",
+    "apps/**/*.tsx",
+    "packages/**/*.ts",
+    "utils/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "**/dist",
+    "**/.next",
+    "**/*.tsbuildinfo",
+    "target",
+    ".turbo"
+  ]
 }

@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: PowerChain API
+  version: 1.0.0-rc.1
+  description: >-
+    Versioned, non-custodial API surfaces for PWRC, PowerPay, standards,
+    program metadata, rates, quotes, and developer tooling. Source validation
+    does not imply a production deployment.
+servers:
+  - url: https://api.powerchain.energy/api/v1
+    description: Canonical API boundary
+  - url: http://localhost:3005/api/v1
+    description: Local development
+paths:
+  /:
+    get:
+      summary: Discover the v1 API
+      responses:
+        '200':
+          description: API route catalog
+  /health:
+    get:
+      summary: Read service health and release state
+      responses:
+        '200':
+          description: Health response
+  /routes:
+    get:
+      summary: Read application and external route registries
+      responses:
+        '200':
+          description: Route registry
+  /standard:
+    get:
+      summary: Read PTK-001 and PPAY-001 machine-readable profiles
+      responses:
+        '200':
+          description: Standards profile
+  /programs:
+    get:
+      summary: Read program source and deployment-boundary metadata
+      responses:
+        '200':
+          description: Program catalog
+  /rates:
+    get:
+      summary: Read supported informational rates
+      responses:
+        '200':
+          description: Rate catalog
+  /quotes:
+    post:
+      summary: Construct a wallet-signed settlement quote
+      responses:
+        '200':
+          description: Quote response
+        '400':
+          description: Invalid request
+  /tools/terminal:
+    get:
+      summary: Read the safe developer command catalog
+      responses:
+        '200':
+          description: Command catalog
+components:
+  securitySchemes:
+    walletProof:
+      type: apiKey
+      in: header
+      name: Authorization
+security: []

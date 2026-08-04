@@ -1,0 +1,4 @@
+"use client";
+import { useEffect, useState } from "react";
+const KEY="powerchain-cookie-consent-v1";
+export function Cookies(){const [open,setOpen]=useState(false);useEffect(()=>{setOpen(localStorage.getItem(KEY)!=="accepted")},[]);if(!open)return null;return <aside className="cookie-card" role="dialog" aria-label="Cookie notice"><div><span className="eyebrow">Privacy controls</span><h3>Essential cookies only</h3><p>PowerChain uses necessary local storage for wallet sessions, security preferences, and consent. Analytics remain disabled unless introduced through a separate consent choice.</p></div><div className="cookie-actions"><a className="secondary-button" href="/legals/privacy">Privacy</a><button className="primary-button" onClick={()=>{localStorage.setItem(KEY,"accepted");setOpen(false)}}>Accept essential</button></div></aside>}

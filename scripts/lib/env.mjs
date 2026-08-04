@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 export const PLACEHOLDER_PROGRAM_ID = "11111111111111111111111111111111";
 export const TOKEN_2022_PROGRAM_ID = "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb";
 
-export async function readEnvFile(file) {
+export async function parseEnvFile(file) {
   const source = await readFile(resolve(file), "utf8");
   const entries = [];
   for (const rawLine of source.split(/\r?\n/)) {
@@ -21,6 +21,8 @@ export async function readEnvFile(file) {
   }
   return Object.fromEntries(entries);
 }
+
+export const readEnvFile = parseEnvFile;
 
 export function requireEnv(env, key) {
   assert.ok(Object.hasOwn(env, key), `${key} is required`);

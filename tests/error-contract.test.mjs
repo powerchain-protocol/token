@@ -23,7 +23,7 @@ test("Rust error ABI preserves frozen codes and appended range", async () => {
 
 test("all IDL copies expose the same 39 errors", async () => {
   const paths = [
-    "idl/powerchain.json",
+    "programs/native-token/idl/powerchain.json",
     "programs/native-token/idl/powerchain.json",
     "target/idl/powerchain.json",
   ];

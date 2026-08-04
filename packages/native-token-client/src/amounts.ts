@@ -18,7 +18,7 @@ export function parsePwrcAmount(value: string | number | bigint): bigint {
     throw new TypeError(`Invalid PWRC decimal amount: ${normalized}`);
   }
 
-  const [whole, fraction = ""] = normalized.split(".");
+  const [whole = "0", fraction = ""] = normalized.split(".");
   if (fraction.length > PWRC_DECIMALS) {
     throw new RangeError(`PWRC supports at most ${PWRC_DECIMALS} decimal places.`);
   }

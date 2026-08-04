@@ -5,6 +5,7 @@ export const PTK_SPECIFICATION_ID = "PTK-001" as const;
 export const PTK_VERSION = "1.0.0-rc.0" as const;
 export const PWRC_NAME = "PowerChain" as const;
 export const PWRC_SYMBOL = "PWRC" as const;
+export const PWRC_MINT_ADDRESS = "PWRCRXXZxbg6FdQZfK3PMD7KP8xfxs9acvifJiG46wc" as const;
 export const PWRC_DECIMALS = 9 as const;
 export const PWRC_GENESIS_SUPPLY = 18_446_000_000n;
 export const PWRC_BASE_UNITS_PER_TOKEN = 10n ** BigInt(PWRC_DECIMALS);

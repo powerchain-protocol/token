@@ -1,0 +1,44 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "preserve",
+    "noEmit": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "types": [
+      "node",
+      "react",
+      "react-dom"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@powerchain/standards": [
+        "../../packages/standards/src/index.ts"
+      ],
+      "@powerchain/standards/*": [
+        "../../packages/standards/src/*"
+      ],
+      "@powerchain/native-token-client": [
+        "../../packages/native-token-client/src/index.ts"
+      ],
+      "@powerchain/native-token-client/*": [
+        "../../packages/native-token-client/src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

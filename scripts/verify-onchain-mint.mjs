@@ -2,18 +2,16 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseEnvFile, validateDeploymentEnv } from "./lib/env.mjs";
+import { loadDeploymentEnv } from "./lib/load-deployment-env.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const envPath = path.resolve(root, process.argv[2] ?? ".env.devnet");
 const profile = process.argv[3] ?? "devnet";
-const env = await parseEnvFile(envPath);
-const validation = validateDeploymentEnv(env, profile);
-if (!validation.ok) throw new Error(validation.errors.join("\n"));
+const env = await loadDeploymentEnv(envPath, profile);
 
 const rpcUrl = env.SOLANA_RPC_URL;
-const mint = env.PWRC_MINT_ADDRESS;
-if (!mint || mint.startsWith("REQUIRED_")) throw new Error("PWRC_MINT_ADDRESS must be a deployed mint");
+const mint = env.POWERCHAIN_PWRC_MINT;
+if (!mint || mint.startsWith("REQUIRED_")) throw new Error("POWERCHAIN_PWRC_MINT must be a deployed mint");
 
 async function rpc(method, params) {
   const response = await fetch(rpcUrl, {
@@ -34,7 +32,7 @@ const [account, supply] = await Promise.all([
 ]);
 if (!account?.value) throw new Error("Mint account not found");
 
-const expectedOwner = env.SOLANA_TOKEN_PROGRAM_ID;
+const expectedOwner = env.PWRC_TOKEN_PROGRAM_ID;
 const parsed = account.value.data?.parsed?.info ?? {};
 const extensions = Array.isArray(parsed.extensions)
   ? parsed.extensions.map((item) => item.extension ?? item.type).filter(Boolean)
@@ -53,7 +51,7 @@ const report = {
   version: 1,
   status: failures.length ? "failed" : "passed",
   profile,
-  cluster: env.SOLANA_CLUSTER,
+  cluster: env.POWERCHAIN_CLUSTER,
   mint,
   owner: account.value.owner,
   slot: account.context?.slot ?? null,

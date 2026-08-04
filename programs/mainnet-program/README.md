@@ -13,3 +13,9 @@ The PWRC mint is an asset account and MUST NOT be reused as a program ID or wall
 ## Authority model
 
 Program upgrades, transfer-fee configuration, withheld-fee withdrawal, treasury operations, and metadata updates require separate governance-controlled authorities. The UI authenticates users through wallet signatures but never grants protocol authority based on a connected wallet address.
+
+## Source and deployment boundary
+
+Canonical program source remains in `programs/native-token/`. This directory is a mainnet deployment profile, not a duplicate program implementation. Generated SBF binaries, generated IDLs, and Cargo outputs belong under the repository root `target/` directory.
+
+A successful source build or profile validation does not establish deployment, upgrade-authority control, audit completion, or production readiness. Those claims require independently recorded on-chain and operational evidence.

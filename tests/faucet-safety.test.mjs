@@ -2,8 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
-const service = fs.readFileSync("faucets/src/service.ts", "utf8");
-const rateLimit = fs.readFileSync("faucets/src/rate-limit.ts", "utf8");
+const service = fs.readFileSync("apps/faucet/src/service.ts", "utf8");
+const rateLimit = fs.readFileSync("apps/faucet/src/rate-limit.ts", "utf8");
 const rust = fs.readFileSync("programs/native-token/src/lib.rs", "utf8");
 
 test("faucet preview does not consume allowance", () => {

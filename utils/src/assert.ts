@@ -6,7 +6,7 @@ export class InvariantError extends Error {
     super(message);
     this.name = "InvariantError";
     this.code = code;
-    this.details = details;
+    if (details !== undefined) this.details = details;
   }
 }
 

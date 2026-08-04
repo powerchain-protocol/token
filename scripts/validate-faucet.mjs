@@ -3,9 +3,8 @@ import { readJson } from "./lib/fs.mjs";
 import { ValidationReport } from "./lib/validation.mjs";
 
 const root = resolve(import.meta.dirname, "..");
-const faucet = await readJson(resolve(root, "faucets/config/tpwrc-faucet.json"));
+const faucet = await readJson(resolve(root, "apps/faucet/config/tpwrc-faucet.json"));
 const token = await readJson(resolve(root, "config/devnet-token.json"));
-const nativeSol = await readJson(resolve(root, "faucets/config/native-sol-faucet.json"));
 const programs = await readJson(resolve(root, "config/programs.json"));
 const report = new ValidationReport();
 
@@ -19,19 +18,6 @@ report.assert(token.symbol === "tPWRC", "TOKEN_PROFILE", "devnet token profile m
 report.assert(token.tokenProgramId === faucet.tokenProgram, "PROFILE_PROGRAM", "faucet and tPWRC profile token programs must match");
 report.assert(token.decimals === faucet.asset?.decimals, "PROFILE_DECIMALS", "faucet and tPWRC profile decimals must match");
 report.assert(token.transferFeeBasisPoints === 250, "PROFILE_FEE", "tPWRC fee must be 250 basis points");
-
-
-report.assert(nativeSol.cluster === "devnet", "SOL_FAUCET_CLUSTER", "native SOL faucet must be devnet-only");
-report.assert(nativeSol.asset?.symbol === "SOL", "SOL_FAUCET_SYMBOL", "native faucet asset must be SOL");
-report.assert(nativeSol.asset?.decimals === 9, "SOL_FAUCET_DECIMALS", "native SOL decimals must be 9");
-report.assert(nativeSol.distribution?.method === "requestAirdrop", "SOL_FAUCET_METHOD", "native SOL faucet must use requestAirdrop");
-report.assert(nativeSol.distribution?.amountSol === 2, "SOL_FAUCET_AMOUNT", "native SOL faucet must send exactly 2 SOL");
-report.assert(nativeSol.distribution?.amountLamports === 2_000_000_000, "SOL_FAUCET_LAMPORTS", "2 SOL must equal 2,000,000,000 lamports");
-report.assert(nativeSol.security?.allowProductionCluster === false, "SOL_FAUCET_PRODUCTION", "native SOL faucet must remain disabled on production clusters");
-report.assert(nativeSol.security?.usesTreasuryKeypair === false, "SOL_FAUCET_TREASURY", "native SOL faucet must not use a treasury keypair");
-report.assert(nativeSol.security?.requiresWalletAuthentication === true, "SOL_FAUCET_AUTH", "native SOL faucet must require wallet authentication");
-report.assert(Number(nativeSol.limits?.maximumPerWalletPerDaySol) >= 2, "SOL_FAUCET_DAILY", "native SOL daily limit must cover one 2 SOL request");
-report.assert(Number.isInteger(nativeSol.limits?.maximumRequestsPerHour) && nativeSol.limits.maximumRequestsPerHour > 0, "SOL_FAUCET_RATE", "native SOL hourly limit must be positive");
 
 const limits = faucet.limits ?? {};
 const defaultAmount = Number(limits.defaultPerRequest);

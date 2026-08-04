@@ -3,13 +3,10 @@
 
 #![forbid(unsafe_code)]
 
-pub mod errors;
 pub mod extensions;
 pub mod instruction;
 pub mod metadata;
 pub mod processor;
-pub mod profile;
-pub mod solana;
 pub mod state;
 pub mod token2022;
 
@@ -53,7 +50,35 @@ pub struct NativeTokenState {
     pub nonce: u64,
 }
 
-pub use errors::{ErrorCategory, NativeTokenError, UnknownNativeTokenError};
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u32)]
+pub enum NativeTokenError {
+    Unauthorized = 1,
+    GenesisAlreadyCompleted = 2,
+    GenesisNotCompleted = 3,
+    PostGenesisMintProhibited = 4,
+    InvalidAmount = 5,
+    SupplyInvariantViolation = 6,
+    ArithmeticOverflow = 7,
+    ReplayDetected = 8,
+    ProgramNotActive = 9,
+    InsufficientSupply = 10,
+    InvalidStatusTransition = 11,
+    InvalidInstructionData = 12,
+    UnsupportedInstructionVersion = 13,
+    UnknownInstruction = 14,
+    InvalidAccountData = 15,
+    UnsupportedStateVersion = 16,
+    InvalidAuthority = 17,
+    MissingRequiredSignature = 18,
+    AccountNotWritable = 19,
+    InvalidAccountOwner = 20,
+    InvalidTokenProgram = 21,
+    InvalidDecimals = 22,
+    InvalidTransferFeeProfile = 23,
+    MissingRequiredExtension = 24,
+    AuthorityNotRevoked = 25,
+}
 
 impl NativeTokenState {
     pub const fn new(authority: [u8; 32]) -> Self {
@@ -93,17 +118,13 @@ impl NativeTokenState {
     }
 
     pub fn pause(&mut self, signer: &[u8; 32], nonce: u64) -> Result<(), NativeTokenError> {
-        self.assert_authority(signer)?;
-        self.assert_genesis_complete()?;
-        self.assert_nonce(nonce)?;
+        self.assert_authority(signer)?; self.assert_nonce(nonce)?; self.assert_genesis_complete()?;
         if self.status != NativeTokenStatus::Active { return Err(NativeTokenError::InvalidStatusTransition); }
         self.status = NativeTokenStatus::Paused; self.nonce = nonce; Ok(())
     }
 
     pub fn resume(&mut self, signer: &[u8; 32], nonce: u64) -> Result<(), NativeTokenError> {
-        self.assert_authority(signer)?;
-        self.assert_genesis_complete()?;
-        self.assert_nonce(nonce)?;
+        self.assert_authority(signer)?; self.assert_nonce(nonce)?; self.assert_genesis_complete()?;
         if self.status != NativeTokenStatus::Paused { return Err(NativeTokenError::InvalidStatusTransition); }
         self.status = NativeTokenStatus::Active; self.nonce = nonce; Ok(())
     }
@@ -133,12 +154,7 @@ impl NativeTokenState {
         if !self.genesis_complete {
             return if self.status == NativeTokenStatus::GenesisPending && self.total_supply_base_units == 0 && self.burned_supply_base_units == 0 { Ok(()) } else { Err(NativeTokenError::SupplyInvariantViolation) };
         }
-        if self.status == NativeTokenStatus::GenesisPending { return Err(NativeTokenError::InvalidStatusTransition); }
         if self.total_supply_base_units.checked_add(self.burned_supply_base_units) == Some(GENESIS_SUPPLY_BASE_UNITS) { Ok(()) } else { Err(NativeTokenError::SupplyInvariantViolation) }
-    }
-
-    fn assert_genesis_complete(&self) -> Result<(), NativeTokenError> {
-        if self.genesis_complete { Ok(()) } else { Err(NativeTokenError::GenesisNotCompleted) }
     }
 
     fn assert_authority(&self, signer: &[u8; 32]) -> Result<(), NativeTokenError> { if signer == &self.authority { Ok(()) } else { Err(NativeTokenError::Unauthorized) } }

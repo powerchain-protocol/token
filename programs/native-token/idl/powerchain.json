@@ -208,197 +208,197 @@
     {
       "code": 1,
       "name": "Unauthorized",
-      "msg": "the signer is not the configured authority"
+      "msg": "Unauthorized"
     },
     {
       "code": 2,
       "name": "GenesisAlreadyCompleted",
-      "msg": "genesis has already been completed"
+      "msg": "GenesisAlreadyCompleted"
     },
     {
       "code": 3,
       "name": "GenesisNotCompleted",
-      "msg": "genesis has not been completed"
+      "msg": "GenesisNotCompleted"
     },
     {
       "code": 4,
       "name": "PostGenesisMintProhibited",
-      "msg": "post-genesis minting is prohibited by PTK-001"
+      "msg": "PostGenesisMintProhibited"
     },
     {
       "code": 5,
       "name": "InvalidAmount",
-      "msg": "the token amount is invalid"
+      "msg": "InvalidAmount"
     },
     {
       "code": 6,
       "name": "SupplyInvariantViolation",
-      "msg": "the PTK-001 supply invariant would be violated"
+      "msg": "SupplyInvariantViolation"
     },
     {
       "code": 7,
       "name": "ArithmeticOverflow",
-      "msg": "checked arithmetic overflowed"
+      "msg": "ArithmeticOverflow"
     },
     {
       "code": 8,
       "name": "ReplayDetected",
-      "msg": "the nonce is not strictly greater than the stored nonce"
+      "msg": "ReplayDetected"
     },
     {
       "code": 9,
       "name": "ProgramNotActive",
-      "msg": "the native-token program is not active"
+      "msg": "ProgramNotActive"
     },
     {
       "code": 10,
       "name": "InsufficientSupply",
-      "msg": "the requested amount exceeds available supply"
+      "msg": "InsufficientSupply"
     },
     {
       "code": 11,
       "name": "InvalidStatusTransition",
-      "msg": "the requested lifecycle transition is invalid"
+      "msg": "InvalidStatusTransition"
     },
     {
       "code": 12,
       "name": "InvalidInstructionData",
-      "msg": "instruction data is malformed or has an invalid length"
+      "msg": "InvalidInstructionData"
     },
     {
       "code": 13,
       "name": "UnsupportedInstructionVersion",
-      "msg": "instruction format version is unsupported"
+      "msg": "UnsupportedInstructionVersion"
     },
     {
       "code": 14,
       "name": "UnknownInstruction",
-      "msg": "instruction discriminator is unknown"
+      "msg": "UnknownInstruction"
     },
     {
       "code": 15,
       "name": "InvalidAccountData",
-      "msg": "account data is malformed or violates state invariants"
+      "msg": "InvalidAccountData"
     },
     {
       "code": 16,
       "name": "UnsupportedStateVersion",
-      "msg": "persisted state version is unsupported"
+      "msg": "UnsupportedStateVersion"
     },
     {
       "code": 17,
       "name": "InvalidAuthority",
-      "msg": "authority is missing, unchanged, or otherwise invalid"
+      "msg": "InvalidAuthority"
     },
     {
       "code": 18,
       "name": "MissingRequiredSignature",
-      "msg": "a required account did not sign"
+      "msg": "MissingRequiredSignature"
     },
     {
       "code": 19,
       "name": "AccountNotWritable",
-      "msg": "a required account is not writable"
+      "msg": "AccountNotWritable"
     },
     {
       "code": 20,
       "name": "InvalidAccountOwner",
-      "msg": "account owner does not match the expected program"
+      "msg": "InvalidAccountOwner"
     },
     {
       "code": 21,
       "name": "InvalidTokenProgram",
-      "msg": "PWRC must use the canonical SPL Token-2022 program"
+      "msg": "InvalidTokenProgram"
     },
     {
       "code": 22,
       "name": "InvalidDecimals",
-      "msg": "token decimals do not match the frozen PTK-001 value"
+      "msg": "InvalidDecimals"
     },
     {
       "code": 23,
       "name": "InvalidTransferFeeProfile",
-      "msg": "transfer-fee configuration does not match the frozen profile"
+      "msg": "InvalidTransferFeeProfile"
     },
     {
       "code": 24,
       "name": "MissingRequiredExtension",
-      "msg": "the mint is missing a required Token-2022 extension"
+      "msg": "MissingRequiredExtension"
     },
     {
       "code": 25,
       "name": "AuthorityNotRevoked",
-      "msg": "mint or freeze authority has not been revoked"
+      "msg": "AuthorityNotRevoked"
     },
     {
       "code": 26,
       "name": "NotEnoughAccounts",
-      "msg": "the instruction did not provide enough accounts"
+      "msg": "NotEnoughAccounts"
     },
     {
       "code": 27,
       "name": "UnexpectedAccount",
-      "msg": "an account is present in an unexpected position or role"
+      "msg": "UnexpectedAccount"
     },
     {
       "code": 28,
       "name": "DuplicateAccount",
-      "msg": "the same account was supplied more than once where uniqueness is required"
+      "msg": "DuplicateAccount"
     },
     {
       "code": 29,
       "name": "SourceEqualsDestination",
-      "msg": "source and destination token accounts must be different"
+      "msg": "SourceEqualsDestination"
     },
     {
       "code": 30,
       "name": "InvalidMint",
-      "msg": "the supplied mint is not the configured PWRC or tPWRC mint"
+      "msg": "InvalidMint"
     },
     {
       "code": 31,
       "name": "InvalidAssociatedTokenAccount",
-      "msg": "associated token account does not match the canonical derivation"
+      "msg": "InvalidAssociatedTokenAccount"
     },
     {
       "code": 32,
       "name": "TransferFeeExceeded",
-      "msg": "calculated or supplied transfer fee exceeds the approved maximum"
+      "msg": "TransferFeeExceeded"
     },
     {
       "code": 33,
       "name": "FeeCalculationMismatch",
-      "msg": "client-provided fee does not match the on-chain Token-2022 calculation"
+      "msg": "FeeCalculationMismatch"
     },
     {
       "code": 34,
       "name": "InvalidMaximumFee",
-      "msg": "maximum transfer fee does not match the approved profile"
+      "msg": "InvalidMaximumFee"
     },
     {
       "code": 35,
       "name": "InvalidMetadataPointer",
-      "msg": "metadata pointer does not target the approved mint metadata"
+      "msg": "InvalidMetadataPointer"
     },
     {
       "code": 36,
       "name": "InvalidMetadata",
-      "msg": "token metadata is missing, malformed, or inconsistent"
+      "msg": "InvalidMetadata"
     },
     {
       "code": 37,
       "name": "InvalidProgramAddress",
-      "msg": "program address is invalid or still set to a placeholder"
+      "msg": "InvalidProgramAddress"
     },
     {
       "code": 38,
       "name": "TransactionExpired",
-      "msg": "transaction blockhash or validity window has expired"
+      "msg": "TransactionExpired"
     },
     {
       "code": 39,
       "name": "ConfigurationMismatch",
-      "msg": "runtime configuration does not match the frozen PTK-001 profile"
+      "msg": "ConfigurationMismatch"
     }
   ]
 }

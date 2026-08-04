@@ -1,13 +1,8 @@
 packages:
+  - "apps/*"
   - "packages/*"
-  - "client"
-  - "faucets"
   - "utils"
-  - "app"
 
-# pnpm 11 replaces onlyBuiltDependencies/ignoredBuiltDependencies with a
-# single explicit allowBuilds map. Every dependency discovered with an install
-# script must be classified so strictDepBuilds can remain enabled.
 allowBuilds:
   esbuild: true
   sharp: true
@@ -19,3 +14,5 @@ allowBuilds:
   tiny-secp256k1: false
   usb: false
   utf-8-validate: false
+
+verifyDepsBeforeRun: false

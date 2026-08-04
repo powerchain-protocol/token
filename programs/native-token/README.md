@@ -27,6 +27,7 @@ programs/native-token/
 ├── src/lib.rs                 # Frozen constants and fixed-supply state machine
 ├── src/errors.rs              # Stable 39-code program error ABI
 ├── src/profile.rs             # Fail-closed mainnet program profile
+├── src/standard.rs            # Frozen PTK-001 conformance profile
 ├── src/extensions.rs          # Token-2022 extension policy
 ├── src/metadata.rs            # Canonical metadata and logo URIs
 ├── tests/native_token.rs      # Monetary and lifecycle tests
@@ -41,12 +42,11 @@ programs/native-token/
 
 Required extensions:
 
+- `TransferFeeConfig`
 - `MetadataPointer`
 - `TokenMetadata`
 
 Optional after governance and security review:
-
-- `TransferFeeConfig`
 - `PermanentDelegate`
 - `MintCloseAuthority`
 - `GroupPointer`
@@ -188,3 +188,7 @@ program errors, while Rust clients can decode them with
 ## Security invariants
 
 The program test suite now verifies atomic failure for unauthorized calls and invalid account preconditions, terminal deprecation behavior, supply preservation, and round-trip stability for every published custom error code. Production authority signing remains outside the program and must follow PTK-KEY-001; private key material is never stored in program accounts or instruction data.
+
+## Optimized build profile
+
+Program release builds use one codegen unit, fat LTO, overflow checks, panic abort, symbol stripping, size optimization, and a shared root Cargo target directory. Run program commands from the repository root so toolchain checks and artifact paths remain deterministic. Source validation does not imply deployment or audit completion.

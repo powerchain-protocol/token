@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "name": "PowerChain Native Token Workspace",
+  "packageManager": "pnpm@11.20.0",
+  "nodeVersion": "24.14.0",
+  "applications": {
+    "web": {
+      "package": "@powerchain/web",
+      "path": "apps/web",
+      "port": 3005,
+      "publicUrl": "https://powerchain.energy"
+    },
+    "faucet": {
+      "package": "@powerchain/faucet",
+      "path": "apps/faucet",
+      "port": 3015,
+      "publicUrl": "https://faucet.powerchain.energy"
+    },
+    "client": {
+      "package": "@powerchain/client",
+      "path": "apps/client",
+      "port": 0,
+      "publicUrl": "https://api.powerchain.energy/api/v1"
+    }
+  },
+  "services": {
+    "api": "https://api.powerchain.energy/api/v1",
+    "payments": "https://payments.powerchain.energy",
+    "documentation": "https://docs.powerchain.energy"
+  },
+  "packages": [
+    "@powerchain/client",
+    "@powerchain/native-token-client",
+    "@powerchain/standards",
+    "@powerchain/token-metadata",
+    "@powerchain/utils"
+  ],
+  "programs": [
+    "programs/native-token",
+    "programs/powerpay"
+  ],
+  "legacyPathsForbidden": [
+    "app",
+    "client",
+    "faucets",
+    "components",
+    "idl"
+  ]
+}

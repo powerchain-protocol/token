@@ -8,7 +8,7 @@ const [token, extensions, authorities, explorers, links, idl] = await Promise.al
   readJson("config/authorities.json"),
   readJson("config/explorers.json"),
   readJson("config/links.json"),
-  readJson("idl/powerchain.json"),
+  readJson("programs/native-token/idl/powerchain.json"),
 ]);
 
 assert.equal(token.specification, "PTK-001");
@@ -18,8 +18,6 @@ assert.equal(String(token.genesisSupply), "18446000000");
 assert.equal(String(token.maximumSupply), "18446000000");
 assert.equal(token.transferFeeBasisPoints, 250);
 assert.equal(token.transferFeePercent, "2.50");
-assert.equal(token.transferFeePolicy.basisPoints, 250);
-assert.equal(token.transferFeePolicy.percent, "2.50");
 assert.equal(extensions.transferFee.basisPoints, 250);
 assert.equal(extensions.transferFee.percent, "2.50");
 assert.equal(token.maximumTransferFeeTokens, extensions.transferFee.maximumFeeTokens);

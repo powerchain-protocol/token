@@ -2,15 +2,13 @@ import { createHash } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseEnvFile, validateDeploymentEnv } from "./lib/env.mjs";
+import { loadDeploymentEnv } from "./lib/load-deployment-env.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const envPath = path.resolve(root, process.argv[2] ?? ".env.devnet");
 const profile = process.argv[3] ?? "devnet";
-const env = await parseEnvFile(envPath);
-const validation = validateDeploymentEnv(env, profile);
-if (!validation.ok) throw new Error(validation.errors.join("\n"));
-if (!env.PWRC_MINT_ADDRESS || env.PWRC_MINT_ADDRESS.startsWith("REQUIRED_")) throw new Error("PWRC_MINT_ADDRESS must be deployed");
+const env = await loadDeploymentEnv(envPath, profile);
+if (!env.POWERCHAIN_PWRC_MINT || env.POWERCHAIN_PWRC_MINT.startsWith("REQUIRED_")) throw new Error("POWERCHAIN_PWRC_MINT must be deployed");
 
 async function rpc(method, params) {
   const response = await fetch(env.SOLANA_RPC_URL, {
@@ -23,8 +21,8 @@ async function rpc(method, params) {
   return payload.result;
 }
 const [supply, account, slot] = await Promise.all([
-  rpc("getTokenSupply", [env.PWRC_MINT_ADDRESS, { commitment: "finalized" }]),
-  rpc("getAccountInfo", [env.PWRC_MINT_ADDRESS, { encoding: "jsonParsed", commitment: "finalized" }]),
+  rpc("getTokenSupply", [env.POWERCHAIN_PWRC_MINT, { commitment: "finalized" }]),
+  rpc("getAccountInfo", [env.POWERCHAIN_PWRC_MINT, { encoding: "jsonParsed", commitment: "finalized" }]),
   rpc("getSlot", [{ commitment: "finalized" }])
 ]);
 const info = account.value?.data?.parsed?.info ?? {};
@@ -33,7 +31,7 @@ const observed = BigInt(supply.value.amount);
 if (observed > genesis) throw new Error("Observed supply exceeds frozen PTK-001 genesis supply");
 const report = {
   version: 1, status: "passed", specification: "PTK-001", profile,
-  cluster: env.SOLANA_CLUSTER, mint: env.PWRC_MINT_ADDRESS, slot,
+  cluster: env.POWERCHAIN_CLUSTER, mint: env.POWERCHAIN_PWRC_MINT, slot,
   observedSupplyBaseUnits: observed.toString(),
   burnedSupplyBaseUnits: (genesis - observed).toString(),
   mintAuthority: info.mintAuthority ?? null,
