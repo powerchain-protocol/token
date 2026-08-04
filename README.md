@@ -51,7 +51,7 @@ pnpm install
 pnpm scripts:list
 ```
 
-Node `24.14.0+`, pnpm `11.18.0+`, Rust, and the Solana/Anza SBF toolchain are expected for the complete build matrix.
+Node `24.14.0+`, pnpm `11.20.0+`, Rust, and the Solana/Anza SBF toolchain are expected for the complete build matrix.
 
 ## Common commands
 
