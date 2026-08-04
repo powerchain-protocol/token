@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "status": "blocked",
+  "generatedAt": "2026-08-04T06:11:02.095Z",
+  "frozenProfile": {
+    "frozenManifest": "config/ptk-001-frozen.json",
+    "decimals": 9,
+    "transferFeeBasisPoints": 250,
+    "maximumTransferFeeTokens": "1000000",
+    "postGenesisMint": false,
+    "tokenProgram": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+  },
+  "gates": [
+    {
+      "artifact": "audits/program/FINAL_REPORT.pdf",
+      "present": false
+    },
+    {
+      "artifact": "audits/program/ATTESTATION.json",
+      "present": false
+    },
+    {
+      "artifact": "audits/economic-policy/FINAL_REPORT.pdf",
+      "present": false
+    },
+    {
+      "artifact": "audits/economic-policy/ATTESTATION.json",
+      "present": false
+    },
+    {
+      "artifact": "target/rehearsal/devnet-report.json",
+      "present": false
+    },
+    {
+      "artifact": "target/hosting/verification.json",
+      "present": false
+    },
+    {
+      "artifact": "target/compatibility/signoffs.json",
+      "present": false
+    },
+    {
+      "artifact": "target/reproducible-build/verification.json",
+      "present": false
+    },
+    {
+      "artifact": "target/governance/authority-ceremony.json",
+      "present": false
+    },
+    {
+      "artifact": "target/onchain/production-mint-verification.json",
+      "present": false
+    },
+    {
+      "artifact": "target/supply/latest-attestation.json",
+      "present": false
+    }
+  ],
+  "blockingCount": 11
+}

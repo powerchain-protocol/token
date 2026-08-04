@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "policy": "two-step-governance-controlled-rotation",
+  "timelockHours": 48,
+  "minimumApprovals": 5,
+  "totalSigners": 7,
+  "roles": [
+    "transferFeeConfigAuthority",
+    "withdrawWithheldAuthority",
+    "treasuryAuthority",
+    "metadataUpdateAuthority",
+    "programUpgradeAuthority"
+  ],
+  "requirements": {
+    "proposalHashRequired": true,
+    "newAuthorityMustBeNonzero": true,
+    "newAuthorityMustDiffer": true,
+    "simulationRequired": true,
+    "rollbackPlanRequired": true,
+    "postExecutionVerificationRequired": true
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "program": "spl-token-2022",
+  "required": [
+    "TransferFeeConfig",
+    "MetadataPointer",
+    "TokenMetadata"
+  ],
+  "optionalAfterAudit": [
+    "PermanentDelegate",
+    "MintCloseAuthority",
+    "GroupPointer",
+    "GroupMemberPointer"
+  ],
+  "planned": [
+    "TransferHook",
+    "ConfidentialTransferMint"
+  ],
+  "prohibited": [
+    "InterestBearingConfig",
+    "NonTransferable"
+  ],
+  "authorityPolicy": "governance-controlled-multisig-with-timelock",
+  "transferFee": {
+    "basisPoints": 250,
+    "percent": "2.50",
+    "maximumFeeTokens": "1000000",
+    "withheldOnRecipientAccounts": true,
+    "withdrawAuthority": "governance-controlled-multisig-with-timelock",
+    "transferable": true,
+    "fungible": true,
+    "tradeable": true
+  }
+}

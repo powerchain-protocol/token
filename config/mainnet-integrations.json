@@ -1,0 +1,27 @@
+{
+  "cluster": "mainnet-beta",
+  "mint": "PWRCRXXZxbg6FdQZfK3PMD7KP8xfxs9acvifJiG46wc",
+  "providers": {
+    "rpc": {
+      "primary": "helius",
+      "fallback": "anza-public-rpc"
+    },
+    "explorer": {
+      "default": "solscan"
+    },
+    "marketData": {
+      "provider": "birdeye",
+      "authoritative": false
+    },
+    "oracle": {
+      "provider": "pyth-hermes",
+      "authoritative": false
+    }
+  },
+  "safety": {
+    "externalDataMayChangeSupply": false,
+    "requireHttps": true,
+    "timeoutMs": 10000,
+    "maximumRetries": 2
+  }
+}

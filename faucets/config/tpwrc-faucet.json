@@ -1,0 +1,23 @@
+{
+  "id": "tpwrc-devnet-faucet",
+  "enabled": true,
+  "cluster": "devnet",
+  "asset": { "name": "PowerChain Test Token", "symbol": "tPWRC", "decimals": 9 },
+  "tokenProgram": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+  "mintEnv": "TPWRC_MINT",
+  "treasuryOwnerEnv": "TPWRC_FAUCET_TREASURY_OWNER",
+  "limits": {
+    "defaultPerRequest": "1000",
+    "maximumPerRequest": "5000",
+    "maximumPerWalletPerDay": "10000",
+    "maximumRequestsPerHour": 3,
+    "minimumTreasuryReserve": "1000000"
+  },
+  "security": {
+    "requireSimulation": true,
+    "requireConfirmedCommitment": true,
+    "allowProductionCluster": false,
+    "allowCanonicalPwrcMint": false,
+    "logRecipientHashOnly": true
+  }
+}

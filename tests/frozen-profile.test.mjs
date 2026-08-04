@@ -1,0 +1,4 @@
+import test from "node:test"; import assert from "node:assert/strict"; import { readFile } from "node:fs/promises";
+const root=new URL("../",import.meta.url); const frozen=JSON.parse(await readFile(new URL("config/ptk-001-frozen.json",root),"utf8"));
+test("PTK-001 monetary constants are frozen",()=>{assert.equal(frozen.constants.decimals,9);assert.equal(frozen.constants.genesisSupplyBaseUnits,"18446000000000000000");assert.equal(frozen.constants.postGenesisMint,false)});
+test("Token-2022 profile is frozen",()=>{assert.deepEqual(frozen.token2022.requiredExtensions,["TransferFeeConfig","MetadataPointer","TokenMetadata"]);assert.equal(frozen.token2022.transferFeeBasisPoints,250);assert.equal(frozen.token2022.maximumFeeBaseUnits,"1000000000000000");assert.equal(frozen.token2022.nonTransferable,false)});

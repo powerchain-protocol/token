@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "requiredEvidence": {
+    "programAudit": {
+      "path": "audits/program/FINAL_REPORT.pdf",
+      "attestation": "audits/program/ATTESTATION.json",
+      "requiredFields": ["auditor", "reportSha256", "completedAt", "scope", "criticalFindingsOpen"]
+    },
+    "economicPolicyAudit": {
+      "path": "audits/economic-policy/FINAL_REPORT.pdf",
+      "attestation": "audits/economic-policy/ATTESTATION.json",
+      "requiredFields": ["auditor", "reportSha256", "completedAt", "scope", "criticalFindingsOpen"]
+    },
+    "devnetRehearsal": {
+      "path": "target/rehearsal/devnet-report.json",
+      "requiredStatus": "passed"
+    },
+    "hosting": {
+      "path": "target/hosting/verification.json",
+      "requiredStatus": "passed"
+    },
+    "compatibility": {
+      "path": "target/compatibility/signoffs.json",
+      "requiredStatus": "approved"
+    },
+    "reproducibleBuild": {
+      "path": "target/reproducible-build/verification.json",
+      "requiredStatus": "matched"
+    },
+    "authorityCeremony": {
+      "path": "target/governance/authority-ceremony.json",
+      "requiredStatus": "completed"
+    }
+  }
+}

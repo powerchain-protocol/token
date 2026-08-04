@@ -1,0 +1,54 @@
+{
+  "asOf": "2026-08-04",
+  "status": "requires-counterparty-rehearsal",
+  "rule": "Documentation is evidence of capability, not production acceptance of PWRC. Each integration must pass a signed devnet test before status becomes confirmed.",
+  "categories": {
+    "wallets": [
+      {
+        "name": "Phantom",
+        "status": "documented-token-2022-capability",
+        "transferFeeSpecific": "rehearsal-required",
+        "evidence": "https://docs.phantom.com/developer-powertools/solana-token-extensions-token22"
+      },
+      {
+        "name": "Solflare",
+        "status": "unverified",
+        "transferFeeSpecific": "rehearsal-required"
+      },
+      {
+        "name": "Backpack",
+        "status": "unverified",
+        "transferFeeSpecific": "rehearsal-required"
+      }
+    ],
+    "custodians": [
+      {
+        "name": "Institutional custodian",
+        "status": "partner-confirmation-required",
+        "transferFeeSpecific": "deposit-withdrawal-accounting-test-required"
+      }
+    ],
+    "exchanges": [
+      {
+        "name": "Centralized exchange",
+        "status": "listing-review-required",
+        "transferFeeSpecific": "do-not-assume-support"
+      }
+    ],
+    "marketplaces": [
+      {
+        "name": "Solana DEX/aggregator",
+        "status": "pool-and-router-specific",
+        "transferFeeSpecific": "quote-settlement-and-withheld-fee-tests-required"
+      }
+    ]
+  },
+  "requiredEvidence": [
+    "wallet send displays fee/net correctly",
+    "deposit credits net received amount",
+    "withdrawal transaction uses TransferCheckedWithFee",
+    "DEX quote accounts for 250 bps fee on every transfer leg",
+    "ATA creation uses Token-2022 program ID",
+    "explorer shows extensions and withheld fees"
+  ]
+}

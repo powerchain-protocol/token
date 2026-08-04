@@ -1,0 +1,3 @@
+import fs from "node:fs"; import path from "node:path";
+const root=process.cwd(); const s=JSON.parse(fs.readFileSync(path.join(root,"config/metadata.source.json"),"utf8"));
+const fail=(m)=>{throw new Error(m)}; if(s.decimals!==9)fail("PWRC decimals must be 9"); if(s.transferFeeBasisPoints!==250)fail("fee must be 250 bps"); if(!/^https:\/\//.test(s.metadataUri)||!/^https:\/\//.test(s.image))fail("metadata and image URIs must use HTTPS"); if(s.assetClass!=="fungible"||!s.transferable||!s.tradeable)fail("PWRC must remain fungible, transferable, and tradeable"); for(const x of ["TransferFeeConfig","MetadataPointer","TokenMetadata"])if(!s.extensions.includes(x))fail(`missing ${x}`); console.log("metadata source validated");

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "policy": "PTK-KEY-001",
+  "production": {
+    "localKeypairFilesAllowed": false,
+    "requiredSignerType": "remote-or-hardware-backed",
+    "allowedSignerTypes": ["squads-multisig", "hsm", "kms", "hardware-wallet", "isolated-signer"],
+    "minimumMultisigThreshold": 5,
+    "minimumMultisigMembers": 7,
+    "requireTimelockSeconds": 172800,
+    "requireKeyRotationRunbook": true,
+    "requireBreakGlassProcedure": true
+  },
+  "devnet": {
+    "localKeypairFilesAllowed": true,
+    "requiredFileMode": "0600",
+    "rejectSymlinks": true,
+    "rejectRepositoryPaths": true,
+    "requireExpectedPublicKey": true,
+    "maximumSecretKeyBytes": 64
+  },
+  "logging": {
+    "neverLogSecretKey": true,
+    "neverLogSeedPhrase": true,
+    "neverLogKeypairJson": true,
+    "publicKeysMayBeLogged": true
+  }
+}

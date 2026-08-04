@@ -1,0 +1,25 @@
+{
+  "profileId": "PTK-DEV-001",
+  "status": "experimental-devnet-only",
+  "name": "PowerChain Test Token",
+  "symbol": "tPWRC",
+  "ticker": "tPWRC",
+  "decimals": 9,
+  "cluster": "devnet",
+  "tokenProgram": "Token-2022",
+  "tokenProgramId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+  "mint": "TBA",
+  "mintEnv": "TPWRC_MINT",
+  "separateFromCanonicalPwrc": true,
+  "transferFeeBasisPoints": 250,
+  "maximumTransferFeeTokens": "1000000",
+  "requiredExtensions": [
+    "TransferFeeConfig",
+    "MetadataPointer",
+    "TokenMetadata"
+  ],
+  "mintAuthorityPolicy": "revoke-after-test-genesis",
+  "freezeAuthorityPolicy": "revoked",
+  "production": false,
+  "mintStatus": "pending-devnet-creation"
+}

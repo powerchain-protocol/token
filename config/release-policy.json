@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "productionActivation": {
+    "default": false,
+    "requiresAuditReport": true,
+    "requiresReproducibleBuild": true,
+    "requiresProgramVerification": true,
+    "requiresAuthorityVerification": true,
+    "requiresMintExtensionVerification": true,
+    "requiresRpcHealthCheck": true,
+    "requiresRollbackPlan": true
+  },
+  "tokenInvariants": {
+    "decimals": 9,
+    "transferFeeBasisPoints": 250,
+    "maximumTransferFeeTokens": "1000000",
+    "postGenesisMint": false,
+    "tokenProgram": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+  },
+  "blockingArtifacts": [
+    "audits/program/final-report.pdf",
+    "audits/economic-policy/final-report.pdf",
+    "evidence/devnet-rehearsal.json",
+    "evidence/reproducible-builds.json",
+    "evidence/authority-ceremony.json"
+  ]
+}

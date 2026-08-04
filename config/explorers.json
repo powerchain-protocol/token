@@ -1,0 +1,39 @@
+{
+  "default": "solscan",
+  "providers": {
+    "solscan": {
+      "displayName": "Solscan",
+      "baseUrl": "https://solscan.io",
+      "default": true,
+      "supports": [
+        "account",
+        "token",
+        "transaction",
+        "block"
+      ],
+      "clusterQuery": {
+        "mainnet-beta": null,
+        "devnet": "devnet",
+        "testnet": "testnet",
+        "localnet": "custom"
+      }
+    },
+    "solanaExplorer": {
+      "displayName": "Solana Explorer",
+      "baseUrl": "https://explorer.solana.com",
+      "default": false,
+      "supports": [
+        "account",
+        "token",
+        "transaction",
+        "block"
+      ],
+      "clusterQuery": {
+        "mainnet-beta": null,
+        "devnet": "devnet",
+        "testnet": "testnet",
+        "localnet": "custom"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "default": "mainnet-beta",
+  "clusters": {
+    "localnet": {
+      "rpcUrl": "http://127.0.0.1:8899",
+      "wsUrl": "ws://127.0.0.1:8900"
+    },
+    "devnet": {
+      "rpcUrl": "https://api.devnet.solana.com",
+      "wsUrl": "wss://api.devnet.solana.com"
+    },
+    "mainnet-beta": {
+      "rpcUrlEnv": "SOLANA_RPC_URL",
+      "wsUrlEnv": "SOLANA_WS_URL",
+      "managedRpcUrlEnv": "HELIUS_MAINNET_RPC_URL",
+      "managedWsUrlEnv": "HELIUS_MAINNET_WS_URL"
+    }
+  }
+}

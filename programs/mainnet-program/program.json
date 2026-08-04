@@ -1,0 +1,31 @@
+{
+  "profile": "PTK-MAINNET-001",
+  "specification": {
+    "id": "PTK-001",
+    "version": "1.0.0-rc.0"
+  },
+  "network": "mainnet-beta",
+  "runtime": "solana-sbf",
+  "framework": "pinocchio",
+  "status": "configuration-required",
+  "programId": "TBA",
+  "mint": "PWRCRXXZxbg6FdQZfK3PMD7KP8xfxs9acvifJiG46wc",
+  "tokenProgram": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+  "associatedTokenProgram": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+  "decimals": 9,
+  "transferFeeBasisPoints": 250,
+  "maximumTransferFeeTokens": "1000000",
+  "requiredExtensions": [
+    "TransferFeeConfig",
+    "MetadataPointer",
+    "TokenMetadata"
+  ],
+  "userAuthentication": "wallet-signature",
+  "authorityModel": "governance-multisig-timelock",
+  "upgradeAuthority": "TBA",
+  "treasuryAuthority": "TBA",
+  "withdrawWithheldAuthority": "TBA",
+  "productionDeployment": false,
+  "auditRequired": true,
+  "reproducibleBuildRequired": true
+}

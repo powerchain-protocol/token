@@ -1,0 +1,404 @@
+{
+  "address": "11111111111111111111111111111111",
+  "metadata": {
+    "name": "powerchain",
+    "version": "1.0.0-rc.0",
+    "spec": "PTK-001",
+    "description": "Experimental PTK-001 versioned native-token IDL; placeholder address is not a deployment."
+  },
+  "instructions": [
+    {
+      "name": "initializeGenesis",
+      "accounts": [
+        {
+          "name": "state",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "nonce",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "burn",
+      "accounts": [
+        {
+          "name": "state",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "signer": true
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "source",
+          "writable": true
+        },
+        {
+          "name": "token2022Program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u128"
+        },
+        {
+          "name": "nonce",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "pause",
+      "accounts": [
+        {
+          "name": "state",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "nonce",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "resume",
+      "accounts": [
+        {
+          "name": "state",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "nonce",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "transferAuthority",
+      "accounts": [
+        {
+          "name": "state",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "newAuthority",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "nonce",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "deprecate",
+      "accounts": [
+        {
+          "name": "state",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "nonce",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "nativeTokenState",
+      "discriminator": [
+        80,
+        87,
+        82,
+        67,
+        83,
+        84,
+        48,
+        49
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "nativeTokenState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "authority",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "status",
+            "type": "u8"
+          },
+          {
+            "name": "totalSupplyBaseUnits",
+            "type": "u128"
+          },
+          {
+            "name": "burnedSupplyBaseUnits",
+            "type": "u128"
+          },
+          {
+            "name": "genesisComplete",
+            "type": "bool"
+          },
+          {
+            "name": "nonce",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 1,
+      "name": "Unauthorized",
+      "msg": "the signer is not the configured authority"
+    },
+    {
+      "code": 2,
+      "name": "GenesisAlreadyCompleted",
+      "msg": "genesis has already been completed"
+    },
+    {
+      "code": 3,
+      "name": "GenesisNotCompleted",
+      "msg": "genesis has not been completed"
+    },
+    {
+      "code": 4,
+      "name": "PostGenesisMintProhibited",
+      "msg": "post-genesis minting is prohibited by PTK-001"
+    },
+    {
+      "code": 5,
+      "name": "InvalidAmount",
+      "msg": "the token amount is invalid"
+    },
+    {
+      "code": 6,
+      "name": "SupplyInvariantViolation",
+      "msg": "the PTK-001 supply invariant would be violated"
+    },
+    {
+      "code": 7,
+      "name": "ArithmeticOverflow",
+      "msg": "checked arithmetic overflowed"
+    },
+    {
+      "code": 8,
+      "name": "ReplayDetected",
+      "msg": "the nonce is not strictly greater than the stored nonce"
+    },
+    {
+      "code": 9,
+      "name": "ProgramNotActive",
+      "msg": "the native-token program is not active"
+    },
+    {
+      "code": 10,
+      "name": "InsufficientSupply",
+      "msg": "the requested amount exceeds available supply"
+    },
+    {
+      "code": 11,
+      "name": "InvalidStatusTransition",
+      "msg": "the requested lifecycle transition is invalid"
+    },
+    {
+      "code": 12,
+      "name": "InvalidInstructionData",
+      "msg": "instruction data is malformed or has an invalid length"
+    },
+    {
+      "code": 13,
+      "name": "UnsupportedInstructionVersion",
+      "msg": "instruction format version is unsupported"
+    },
+    {
+      "code": 14,
+      "name": "UnknownInstruction",
+      "msg": "instruction discriminator is unknown"
+    },
+    {
+      "code": 15,
+      "name": "InvalidAccountData",
+      "msg": "account data is malformed or violates state invariants"
+    },
+    {
+      "code": 16,
+      "name": "UnsupportedStateVersion",
+      "msg": "persisted state version is unsupported"
+    },
+    {
+      "code": 17,
+      "name": "InvalidAuthority",
+      "msg": "authority is missing, unchanged, or otherwise invalid"
+    },
+    {
+      "code": 18,
+      "name": "MissingRequiredSignature",
+      "msg": "a required account did not sign"
+    },
+    {
+      "code": 19,
+      "name": "AccountNotWritable",
+      "msg": "a required account is not writable"
+    },
+    {
+      "code": 20,
+      "name": "InvalidAccountOwner",
+      "msg": "account owner does not match the expected program"
+    },
+    {
+      "code": 21,
+      "name": "InvalidTokenProgram",
+      "msg": "PWRC must use the canonical SPL Token-2022 program"
+    },
+    {
+      "code": 22,
+      "name": "InvalidDecimals",
+      "msg": "token decimals do not match the frozen PTK-001 value"
+    },
+    {
+      "code": 23,
+      "name": "InvalidTransferFeeProfile",
+      "msg": "transfer-fee configuration does not match the frozen profile"
+    },
+    {
+      "code": 24,
+      "name": "MissingRequiredExtension",
+      "msg": "the mint is missing a required Token-2022 extension"
+    },
+    {
+      "code": 25,
+      "name": "AuthorityNotRevoked",
+      "msg": "mint or freeze authority has not been revoked"
+    },
+    {
+      "code": 26,
+      "name": "NotEnoughAccounts",
+      "msg": "the instruction did not provide enough accounts"
+    },
+    {
+      "code": 27,
+      "name": "UnexpectedAccount",
+      "msg": "an account is present in an unexpected position or role"
+    },
+    {
+      "code": 28,
+      "name": "DuplicateAccount",
+      "msg": "the same account was supplied more than once where uniqueness is required"
+    },
+    {
+      "code": 29,
+      "name": "SourceEqualsDestination",
+      "msg": "source and destination token accounts must be different"
+    },
+    {
+      "code": 30,
+      "name": "InvalidMint",
+      "msg": "the supplied mint is not the configured PWRC or tPWRC mint"
+    },
+    {
+      "code": 31,
+      "name": "InvalidAssociatedTokenAccount",
+      "msg": "associated token account does not match the canonical derivation"
+    },
+    {
+      "code": 32,
+      "name": "TransferFeeExceeded",
+      "msg": "calculated or supplied transfer fee exceeds the approved maximum"
+    },
+    {
+      "code": 33,
+      "name": "FeeCalculationMismatch",
+      "msg": "client-provided fee does not match the on-chain Token-2022 calculation"
+    },
+    {
+      "code": 34,
+      "name": "InvalidMaximumFee",
+      "msg": "maximum transfer fee does not match the approved profile"
+    },
+    {
+      "code": 35,
+      "name": "InvalidMetadataPointer",
+      "msg": "metadata pointer does not target the approved mint metadata"
+    },
+    {
+      "code": 36,
+      "name": "InvalidMetadata",
+      "msg": "token metadata is missing, malformed, or inconsistent"
+    },
+    {
+      "code": 37,
+      "name": "InvalidProgramAddress",
+      "msg": "program address is invalid or still set to a placeholder"
+    },
+    {
+      "code": 38,
+      "name": "TransactionExpired",
+      "msg": "transaction blockhash or validity window has expired"
+    },
+    {
+      "code": 39,
+      "name": "ConfigurationMismatch",
+      "msg": "runtime configuration does not match the frozen PTK-001 profile"
+    }
+  ]
+}

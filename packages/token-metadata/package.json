@@ -1,0 +1,27 @@
+{
+  "name": "@powerchain/token-metadata",
+  "version": "1.0.0-rc.0",
+  "private": true,
+  "type": "module",
+  "description": "Canonical PWRC metadata and logo URI helpers",
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "homepage": "https://docs.powerchain.energy",
+  "documentation": "https://docs.powerchain.energy"
+}

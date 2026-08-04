@@ -1,0 +1,25 @@
+{
+  "default": "devnet",
+  "profiles": {
+    "devnet": {
+      "environmentFile": ".env.devnet",
+      "cluster": "devnet",
+      "production": false,
+      "allowPlaceholderProgramId": true,
+      "requireMintAddress": false,
+      "requireManagedRpc": false,
+      "requireAudit": false
+    },
+    "production": {
+      "environmentFile": ".env.production",
+      "cluster": "mainnet-beta",
+      "production": true,
+      "allowPlaceholderProgramId": false,
+      "requireMintAddress": true,
+      "requireManagedRpc": true,
+      "requireAudit": true,
+      "requireReproducibleBuild": true,
+      "requireGovernanceAuthorities": true
+    }
+  }
+}

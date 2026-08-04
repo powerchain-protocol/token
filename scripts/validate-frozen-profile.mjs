@@ -1,0 +1,21 @@
+import { createHash } from "node:crypto";
+import { readFile } from "node:fs/promises";
+const root = new URL("../", import.meta.url);
+const frozen = JSON.parse(await readFile(new URL("config/ptk-001-frozen.json", root), "utf8"));
+const token = JSON.parse(await readFile(new URL("config/token.json", root), "utf8"));
+const ext = JSON.parse(await readFile(new URL("config/extensions.json", root), "utf8"));
+const { sha256, ...unsigned } = frozen;
+const canonical = JSON.stringify(unsigned, Object.keys(unsigned).sort());
+// Recreate deep canonical form.
+const stable = value => Array.isArray(value) ? `[${value.map(stable).join(",")}]` : value && typeof value === "object" ? `{${Object.keys(value).sort().map(k => `${JSON.stringify(k)}:${stable(value[k])}`).join(",")}}` : JSON.stringify(value);
+const actualHash = createHash("sha256").update(stable(unsigned)).digest("hex");
+if (actualHash !== sha256) throw new Error(`Frozen profile checksum mismatch: ${actualHash}`);
+const failures=[];
+const c=frozen.constants, t=frozen.token2022;
+if (token.decimals !== c.decimals) failures.push("token decimals drift");
+if (String(token.genesisSupply) !== c.genesisSupplyTokens) failures.push("genesis supply drift");
+if (ext.transferFee.basisPoints !== t.transferFeeBasisPoints) failures.push("fee basis points drift");
+if (String(ext.transferFee.maximumFeeTokens) !== t.maximumFeeTokens) failures.push("maximum fee drift");
+if (JSON.stringify(ext.required) !== JSON.stringify(t.requiredExtensions)) failures.push("required extensions drift");
+if (failures.length) throw new Error(`PTK-001 frozen profile violations: ${failures.join(", ")}`);
+console.log(`PTK-001 frozen profile verified: ${sha256}`);

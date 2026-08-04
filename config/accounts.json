@@ -1,0 +1,26 @@
+{
+  "status": "configuration-template",
+  "cluster": "mainnet-beta",
+  "mint": null,
+  "program": null,
+  "authorities": {
+    "mintAuthority": null,
+    "freezeAuthority": null,
+    "transferFeeConfigAuthority": null,
+    "withdrawWithheldAuthority": null,
+    "metadataUpdateAuthority": null
+  },
+  "operational": {
+    "treasuryOwner": null,
+    "treasuryTokenAccount": null,
+    "feeVaultOwner": null,
+    "feeVaultTokenAccount": null
+  },
+  "rules": {
+    "mintAuthorityRevokedAfterGenesis": true,
+    "freezeAuthorityRevokedAfterGenesis": true,
+    "tokenAccountsMustBeOwnedByToken2022": true,
+    "associatedTokenAccountsMustBeCanonical": true,
+    "treasuryAndFeeVaultMustBeDistinct": true
+  }
+}

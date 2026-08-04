@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "status": "frozen-rc",
+  "specification": "PTK-001",
+  "version": "1.0.0-rc.0",
+  "constants": {
+    "name": "PowerChain",
+    "symbol": "PWRC",
+    "decimals": 9,
+    "genesisSupplyTokens": "18446000000",
+    "genesisSupplyBaseUnits": "18446000000000000000",
+    "maximumSupplyTokens": "18446000000",
+    "maximumSupplyBaseUnits": "18446000000000000000",
+    "postGenesisMint": false
+  },
+  "token2022": {
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "requiredExtensions": [
+      "TransferFeeConfig",
+      "MetadataPointer",
+      "TokenMetadata"
+    ],
+    "transferFeeBasisPoints": 250,
+    "transferFeePercent": "2.50",
+    "maximumFeeTokens": "1000000",
+    "maximumFeeBaseUnits": "1000000000000000",
+    "nonTransferable": false
+  },
+  "changeControl": {
+    "mutable": false,
+    "requiresNewSpecificationVersion": true,
+    "requiresGovernanceProposal": true,
+    "requiresIndependentAudit": true,
+    "requiresCompatibilityRehearsal": true
+  },
+  "sha256": "2db066f67dce2fb12f0b5826f3d8d8513195302b0d373517628b058932649eef"
+}

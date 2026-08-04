@@ -1,0 +1,9 @@
+{
+  "files": {
+    "public/assets/token/pwrc.png": "dfa60d4a4b120e5f5197894d1869318f7e3d06365da57003d63c350c5506fe4d",
+    "public/assets/token/pwrc.svg": "3816d09de6ce4bcab68f15d5ebb3a4ec82b268fd05225b3be2b8c2c9f36d2682",
+    "public/metadata/metadata.json": "5d4fb8032443de31b494d18482adba8ba67f3c44708ee1296c2c968e2ed0768f",
+    "idl/powerchain.json": "2bee2915de03f249b711847e9e3e494cb5d843ba135a005def34dd5193a033c2"
+  },
+  "note": "The SVG is a scalable SVG container embedding the supplied PNG artwork; it is not a path-traced vector redraw."
+}

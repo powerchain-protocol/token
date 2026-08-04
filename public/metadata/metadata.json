@@ -1,0 +1,91 @@
+{
+  "name": "PowerChain",
+  "symbol": "PWRC",
+  "description": "PWRC is the fixed-supply native economic asset defined by PTK-001. This metadata belongs to an experimental reference implementation and does not represent a production deployment.",
+  "image": "https://powerchain.energy/assets/token/pwrc.png",
+  "animation_url": null,
+  "external_url": "https://powerchain.energy",
+  "attributes": [
+    {
+      "trait_type": "Specification",
+      "value": "PTK-001"
+    },
+    {
+      "trait_type": "Version",
+      "value": "1.0.0-rc.0"
+    },
+    {
+      "trait_type": "Asset Type",
+      "value": "Native Currency"
+    },
+    {
+      "trait_type": "Decimals",
+      "value": 9
+    },
+    {
+      "trait_type": "Maximum Supply",
+      "value": "18446000000"
+    },
+    {
+      "trait_type": "Post-Genesis Minting",
+      "value": "Prohibited"
+    },
+    {
+      "trait_type": "Deployment Status",
+      "value": "Experimental Reference Implementation"
+    }
+  ],
+  "properties": {
+    "category": "image",
+    "files": [
+      {
+        "uri": "https://powerchain.energy/assets/token/pwrc.png",
+        "type": "image/png"
+      },
+      {
+        "uri": "https://powerchain.energy/assets/token/pwrc.svg",
+        "type": "image/svg+xml"
+      }
+    ],
+    "creators": [],
+    "specification": "PTK-001",
+    "specificationVersion": "1.0.0-rc.0",
+    "network": "powerchain",
+    "targetCluster": "mainnet-beta",
+    "productionDeployment": false,
+    "programAddress": "11111111111111111111111111111111",
+    "programAddressPlaceholder": true,
+    "metaplexMetadata": "https://powerchain.energy/metadata/metaplex.json",
+    "tokenStandard": "Token-2022",
+    "extensions": [
+      "MetadataPointer",
+      "TokenMetadata",
+      "TransferFeeConfig",
+      "PermanentDelegate",
+      "MintCloseAuthority",
+      "GroupPointer",
+      "GroupMemberPointer"
+    ],
+    "website": "https://powerchain.energy",
+    "whitepaper": "https://whitepaper.powerchain.energy",
+    "socials": {
+      "x": "https://x.com/powerchain_ai",
+      "telegram": "https://t.me/powerchain_official"
+    },
+    "assetClass": "fungible",
+    "transferable": true,
+    "tradeable": true,
+    "tokenProgram": "Token-2022",
+    "transferFeeBasisPoints": 250,
+    "transferFeePercent": "2.50",
+    "documentation": "https://docs.powerchain.energy"
+  },
+  "website": "https://powerchain.energy",
+  "whitepaper": "https://whitepaper.powerchain.energy",
+  "socials": {
+    "x": "https://x.com/powerchain_ai",
+    "telegram": "https://t.me/powerchain_official"
+  },
+  "decimals": 9,
+  "documentation": "https://docs.powerchain.energy"
+}

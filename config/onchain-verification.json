@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "cluster": "devnet",
+  "commitment": "finalized",
+  "requiredProgramOwner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+  "expected": {
+    "decimals": 9,
+    "transferFeeBasisPoints": 250,
+    "maximumTransferFeeTokens": "1000000",
+    "requiredExtensions": ["TransferFeeConfig", "MetadataPointer", "TokenMetadata"],
+    "mintAuthorityRevoked": true,
+    "freezeAuthorityRevoked": true
+  },
+  "evidencePath": "target/onchain/devnet-mint-verification.json"
+}

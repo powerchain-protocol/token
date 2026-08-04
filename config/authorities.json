@@ -1,0 +1,30 @@
+{
+  "status": "pre-deployment-placeholder",
+  "mintAuthority": null,
+  "freezeAuthority": null,
+  "transferFeeConfigAuthority": null,
+  "withdrawWithheldAuthority": null,
+  "recommendedProductionControl": {
+    "type": "governance-multisig",
+    "threshold": "5-of-7",
+    "timelockHours": 48,
+    "hotWalletAllowed": false
+  },
+  "notes": [
+    "Mint authority must be revoked after the one-time genesis issuance.",
+    "Freeze authority should remain revoked for the canonical transferable profile.",
+    "Fee authorities must be assigned only after governance approval and audit.",
+    "No address in this file proves a production deployment."
+  ],
+  "controls": {
+    "type": "governance-multisig",
+    "threshold": "5-of-7",
+    "timelockHours": 48,
+    "hotWalletAllowed": false
+  },
+  "separationOfDuties": {
+    "singleSignerForbidden": true,
+    "feeConfigAndWithdrawalSeparated": true,
+    "treasuryAndUpgradeSeparated": true
+  }
+}

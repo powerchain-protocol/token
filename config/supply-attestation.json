@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "specification": "PTK-001",
+  "asset": "PWRC",
+  "decimals": 9,
+  "genesisSupplyTokens": "18446000000",
+  "genesisSupplyBaseUnits": "18446000000000000000",
+  "postGenesisMintAllowed": false,
+  "attestationFrequency": "quarterly",
+  "requiredFields": [
+    "cluster",
+    "mint",
+    "slot",
+    "observedSupplyBaseUnits",
+    "burnedSupplyBaseUnits",
+    "mintAuthority",
+    "freezeAuthority",
+    "observedAt",
+    "rpcEndpointFingerprint"
+  ],
+  "evidencePath": "target/supply/latest-attestation.json"
+}

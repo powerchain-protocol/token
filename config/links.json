@@ -1,0 +1,11 @@
+{
+  "website": "https://powerchain.energy",
+  "documentation": "https://docs.powerchain.energy",
+  "tokenDocumentation": "https://docs.powerchain.energy/token/pwrc",
+  "tokenStandard": "https://docs.powerchain.energy/standards/ptk-001",
+  "developerDocs": "https://docs.powerchain.energy/developers",
+  "security": "https://docs.powerchain.energy/security",
+  "status": "https://status.powerchain.energy",
+  "explorer": "https://solscan.io",
+  "whitepaper": "https://whitepaper.powerchain.energy"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "PowerChain",
+  "symbol": "PWRC",
+  "uri": "https://powerchain.energy/metadata/metaplex.json",
+  "decimals": 9,
+  "mint": "PWRCRXXZxbg6FdQZfK3PMD7KP8xfxs9acvifJiG46wc",
+  "tokenProgramId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+  "transferFeeBasisPoints": 250,
+  "maximumTransferFeeTokens": "1000000",
+  "extensions": [
+    "TransferFeeConfig",
+    "MetadataPointer",
+    "TokenMetadata"
+  ],
+  "additionalMetadata": [
+    [
+      "specification",
+      "PTK-001"
+    ],
+    [
+      "documentation",
+      "https://docs.powerchain.energy"
+    ],
+    [
+      "asset_class",
+      "fungible"
+    ],
+    [
+      "transferable",
+      "true"
+    ],
+    [
+      "tradeable",
+      "true"
+    ],
+    [
+      "x",
+      "https://x.com/powerchain_ai"
+    ],
+    [
+      "telegram",
+      "https://t.me/powerchain_official"
+    ]
+  ]
+}

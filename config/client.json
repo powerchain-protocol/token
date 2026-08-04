@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "package": "@powerchain/client",
+  "defaultCluster": "devnet",
+  "defaultExplorer": "solscan",
+  "commitment": "confirmed",
+  "tokenProgram": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+  "feeBasisPoints": 250,
+  "decimals": 9,
+  "documentation": "https://docs.powerchain.energy",
+  "security": {
+    "requireTls": true,
+    "rejectPlaceholderProgramId": true,
+    "validateMintExtensions": true,
+    "confirmTransactions": true,
+    "disableRpcRateLimitRetries": true
+  }
+}

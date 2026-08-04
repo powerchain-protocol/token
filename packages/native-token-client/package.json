@@ -1,0 +1,38 @@
+{
+  "name": "@powerchain/native-token-client",
+  "version": "1.0.0-rc.0",
+  "private": true,
+  "type": "module",
+  "description": "Anchor-compatible PTK-001 client and SPL Token-2022 helpers for PWRC",
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test dist/*.test.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.32.1",
+    "@solana/spl-token": "^0.4.15",
+    "@solana/spl-token-metadata": "^0.1.6",
+    "@solana/web3.js": "^1.98.4",
+    "axios": "^1.19.0",
+    "bs58": "^6.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "homepage": "https://docs.powerchain.energy",
+  "documentation": "https://docs.powerchain.energy"
+}

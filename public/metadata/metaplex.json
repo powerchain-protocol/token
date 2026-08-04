@@ -1,0 +1,75 @@
+{
+  "name": "PowerChain",
+  "symbol": "PWRC",
+  "description": "PWRC is the fixed-supply native economic asset defined by PTK-001.",
+  "image": "https://powerchain.energy/assets/token/pwrc.png",
+  "external_url": "https://powerchain.energy",
+  "attributes": [
+    {
+      "trait_type": "Specification",
+      "value": "PTK-001"
+    },
+    {
+      "trait_type": "Version",
+      "value": "1.0.0-rc.0"
+    },
+    {
+      "trait_type": "Token Standard",
+      "value": "Token-2022 Fungible"
+    },
+    {
+      "trait_type": "Decimals",
+      "value": 9
+    },
+    {
+      "trait_type": "Maximum Supply",
+      "value": "18446000000 PWRC"
+    },
+    {
+      "trait_type": "Transfer Fee",
+      "value": "2.5%"
+    }
+  ],
+  "properties": {
+    "category": "image",
+    "files": [
+      {
+        "uri": "https://powerchain.energy/assets/token/pwrc.png",
+        "type": "image/png"
+      },
+      {
+        "uri": "https://powerchain.energy/assets/token/pwrc.svg",
+        "type": "image/svg+xml"
+      }
+    ],
+    "creators": [],
+    "token_standard": "Fungible",
+    "specification": "PTK-001",
+    "production_deployment": false,
+    "assetClass": "fungible",
+    "transferable": true,
+    "tradeable": true,
+    "tokenProgram": "Token-2022",
+    "tokenProgramId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "extensions": [
+      "TransferFeeConfig",
+      "MetadataPointer",
+      "TokenMetadata"
+    ],
+    "documentation": "https://docs.powerchain.energy",
+    "website": "https://powerchain.energy",
+    "whitepaper": "https://whitepaper.powerchain.energy",
+    "socials": {
+      "x": "https://x.com/powerchain_ai",
+      "telegram": "https://t.me/powerchain_official"
+    }
+  },
+  "website": "https://powerchain.energy",
+  "whitepaper": "https://whitepaper.powerchain.energy",
+  "socials": {
+    "x": "https://x.com/powerchain_ai",
+    "telegram": "https://t.me/powerchain_official"
+  },
+  "decimals": 9,
+  "documentation": "https://docs.powerchain.energy"
+}
