@@ -1,0 +1,57 @@
+{
+  "specification": "PPAY-001",
+  "version": "1.0.0-rc.0",
+  "productionDeployment": false,
+  "assets": {
+    "SOL": {
+      "decimals": 9,
+      "mint": null,
+      "program": "11111111111111111111111111111111"
+    },
+    "USDC": {
+      "decimals": 6,
+      "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+    },
+    "PWRC": {
+      "decimals": 9,
+      "mint": "PWRCRXXZxbg6FdQZfK3PMD7KP8xfxs9acvifJiG46wc",
+      "initialReferencePriceUsd": "0.000002",
+      "program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    }
+  },
+  "serviceFeeBasisPoints": 200,
+  "dex": {
+    "default": "jupiter",
+    "providers": [
+      "jupiter",
+      "raydium",
+      "meteora",
+      "orca"
+    ],
+    "execution": "off-chain-quote-and-wallet-signed-transaction"
+  },
+  "solanaPay": {
+    "enabled": true,
+    "recipient": "TBA"
+  },
+  "domains": {
+    "web": "https://payments.powerchain.energy",
+    "api": "https://api.powerchain.energy/api/v1",
+    "docs": "https://docs.powerchain.energy",
+    "allowedOrigins": [
+      "https://powerchain.energy",
+      "https://docs.powerchain.energy",
+      "https://api.powerchain.energy",
+      "https://payments.powerchain.energy"
+    ]
+  },
+  "program": {
+    "name": "powerpay",
+    "specification": "PPAY-001",
+    "programId": "TBA",
+    "network": "mainnet-beta",
+    "productionDeployment": false,
+    "authorityModel": "governance-multisig-timelock"
+  }
+}

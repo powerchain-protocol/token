@@ -87,3 +87,25 @@ const quote = await faucet.quote({
 ```
 
 Documentation: https://docs.powerchain.energy
+
+## Native SOL devnet faucet
+
+The faucet package also supports Solana-native devnet funding through the
+`requestAirdrop` RPC method. Each successful request sends exactly **2 SOL**
+(`2,000,000,000` lamports) to the authenticated wallet.
+
+```ts
+import { Connection } from "@solana/web3.js";
+import { NativeSolFaucetService } from "@powerchain/faucets";
+
+const faucet = new NativeSolFaucetService(
+  new Connection("https://api.devnet.solana.com", "confirmed"),
+);
+
+const receipt = await faucet.request(walletAddress);
+console.log(receipt.amountSol); // 2
+```
+
+This path is devnet-only, does not use a treasury keypair, and may be unavailable
+when the upstream Solana devnet faucet is rate limited. Production and
+mainnet-beta use are prohibited.

@@ -4,3 +4,18 @@ packages:
   - "faucets"
   - "utils"
   - "app"
+
+# pnpm 11 replaces onlyBuiltDependencies/ignoredBuiltDependencies with a
+# single explicit allowBuilds map. Every dependency discovered with an install
+# script must be classified so strictDepBuilds can remain enabled.
+allowBuilds:
+  esbuild: true
+  sharp: true
+  protobufjs: true
+  "@stellar/stellar-sdk": false
+  bigint-buffer: false
+  blake-hash: false
+  bufferutil: false
+  tiny-secp256k1: false
+  usb: false
+  utf-8-validate: false

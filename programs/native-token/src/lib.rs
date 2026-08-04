@@ -9,6 +9,7 @@ pub mod instruction;
 pub mod metadata;
 pub mod processor;
 pub mod profile;
+pub mod solana;
 pub mod state;
 pub mod token2022;
 

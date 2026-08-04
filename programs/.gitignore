@@ -1,0 +1,11 @@
+# Rust / Solana program outputs
+target/
+**/target/
+*.so
+*.dylib
+*.dll
+.anchor/
+test-ledger/
+.solana/
+keypairs/
+**/keypairs/

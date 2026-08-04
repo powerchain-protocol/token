@@ -1,0 +1,3 @@
+import { Footer } from "../../../components/footer";
+import { Header } from "../../../components/header";
+export default function LegalPage(){return <main><Header/><section className="legal-hero"><span className="eyebrow">PowerChain legal</span><h1>Terms of use</h1><p>The application is experimental and provided without guarantees. Users remain responsible for wallet security, transaction review, fees, taxes, regulatory obligations, and third-party protocol risk. A transaction is final only after the selected Solana commitment is satisfied.</p><div className="legal-links"><a href="/legals/terms">Terms</a><a href="/legals/privacy">Privacy</a><a href="/legals/cookies">Cookies</a><a href="/legals/disclaimer">Disclaimer</a></div></section><Footer/></main>}

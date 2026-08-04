@@ -17,3 +17,5 @@ export * from "./transactions.js";
 export * from "./errors.js";
 
 export * from "./mainnet.js";
+
+export * from "./dex.js";

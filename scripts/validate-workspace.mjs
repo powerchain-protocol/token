@@ -9,6 +9,9 @@ const checks = [
   ["Faucet configuration", "scripts/validate-faucet.mjs"],
   ["Public assets", "scripts/validate-assets.mjs"],
   ["Token metadata", "programs/native-token/scripts/validate-metadata.mjs"],
+  ["Application security", "scripts/validate-app.mjs"],
+  ["Mainnet program profile", "scripts/validate-mainnet-program.mjs"],
+  ["PowerPay policy", "scripts/validate-powerpay.mjs"],
 ];
 
 const failures = [];

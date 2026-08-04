@@ -1,0 +1,26 @@
+{
+  "id": "solana-native-devnet-faucet",
+  "enabled": true,
+  "cluster": "devnet",
+  "asset": {
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9
+  },
+  "distribution": {
+    "method": "requestAirdrop",
+    "amountSol": 2,
+    "amountLamports": 2000000000
+  },
+  "limits": {
+    "maximumPerWalletPerDaySol": 4,
+    "maximumRequestsPerHour": 1
+  },
+  "security": {
+    "allowProductionCluster": false,
+    "requiresWalletAuthentication": true,
+    "usesTreasuryKeypair": false,
+    "confirmationCommitment": "confirmed",
+    "logRecipientHashOnly": true
+  }
+}

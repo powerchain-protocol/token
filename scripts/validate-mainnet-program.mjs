@@ -48,4 +48,21 @@ if (profile.authorityModel !== "governance-multisig-timelock") {
   throw new Error("Mainnet authority model must use governance, multisig, and timelock controls.");
 }
 
+const authorityFields = ["upgradeAuthority", "treasuryAuthority", "withdrawWithheldAuthority"];
+for (const field of authorityFields) {
+  const value = profile[field];
+  if (profile.productionDeployment === false && value !== "TBA") {
+    assertAddress(value, field);
+  }
+  if (profile.productionDeployment === true && value === "TBA") {
+    throw new Error(`${field} must be configured before production deployment.`);
+  }
+}
+if (profile.programId === "TBA" && profile.status !== "configuration-required") {
+  throw new Error("A TBA program ID requires configuration-required status.");
+}
+if (profile.programId !== "TBA" && profile.status === "configuration-required") {
+  throw new Error("Configured program IDs must advance beyond configuration-required status.");
+}
+
 console.log("Mainnet program profile validation passed.");

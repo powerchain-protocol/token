@@ -15,6 +15,7 @@ export enum FaucetErrorCode {
   InvalidKeypair = "FAUCET_INVALID_KEYPAIR",
   InsecureKeypair = "FAUCET_INSECURE_KEYPAIR",
   KeypairMismatch = "FAUCET_KEYPAIR_MISMATCH",
+  AirdropUnavailable = "FAUCET_AIRDROP_UNAVAILABLE",
   Disabled = "FAUCET_DISABLED"
 }
 

@@ -1,0 +1,3 @@
+import { Footer } from "../../components/footer";
+import { Header } from "../../components/header";
+export default function LegalPage(){return <main><Header/><section className="legal-hero"><span className="eyebrow">PowerChain legal</span><h1>Legal center</h1><p>Review the terms, privacy policy, cookie notice, risk disclosures, and software disclaimer that apply to PowerChain reference applications.</p><div className="legal-links"><a href="/legals/terms">Terms</a><a href="/legals/privacy">Privacy</a><a href="/legals/cookies">Cookies</a><a href="/legals/disclaimer">Disclaimer</a></div></section><Footer/></main>}

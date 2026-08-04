@@ -70,7 +70,11 @@
     "tpwrc:configure:dry-run": "node scripts/configure-tpwrc-mint.mjs --dry-run",
     "build:app": "pnpm --filter @powerchain/native-token-app build",
     "dev:app": "pnpm --filter @powerchain/native-token-app dev",
-    "validate:mainnet-program": "node scripts/validate-mainnet-program.mjs"
+    "validate:mainnet-program": "node scripts/validate-mainnet-program.mjs",
+    "build:powerpay": "cargo build-sbf --manifest-path programs/powerpay/Cargo.toml --features program",
+    "test:powerpay": "cargo test --manifest-path programs/powerpay/Cargo.toml --all-targets",
+    "validate:powerpay": "node scripts/validate-powerpay.mjs",
+    "check:programs": "pnpm validate:powerpay && pnpm test:program:rust && pnpm test:powerpay"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

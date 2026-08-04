@@ -38,11 +38,3 @@ pnpm dev:app
 ```
 
 The application runs at `http://localhost:3005`.
-
-## Shared logo component
-
-Use `components/logo.tsx` for all PowerChain brand surfaces. It provides a
-single accessible implementation for the PWRC mark, uppercase POWERCHAIN
-wordmark, subtitle, light/dark treatment, icon-only mode, priority loading, and
-optional home link. Header, hero, and footer use this component so branding and
-asset paths cannot drift.

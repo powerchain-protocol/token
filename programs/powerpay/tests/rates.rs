@@ -1,0 +1,3 @@
+use powerchain_powerpay::*;
+#[test] fn reference_price_quotes_exactly(){let q=PriceQuote{source:RateSource::GovernanceReference,price_micro_usd:2,observed_at_unix:10,valid_until_unix:20,maximum_slippage_bps:100};q.validate(15).unwrap();assert_eq!(q.quote_base_units(1_000_000,PWRC_BASE_UNITS_PER_TOKEN).unwrap(),500_000_000_000_000);assert_eq!(q.minimum_received(1000).unwrap(),990)}
+#[test] fn malformed_time_window_is_rejected(){let q=PriceQuote{source:RateSource::Pyth,price_micro_usd:1,observed_at_unix:20,valid_until_unix:10,maximum_slippage_bps:0};assert_eq!(q.validate(15),Err(PowerPayError::InvalidTimestamp))}

@@ -1,0 +1,6 @@
+import type { NextRequest } from "next/server";
+import { corsJson, corsOptions } from "../../../../lib/cors";
+import { PowerChainDexClient } from "@powerchain/native-token-client";
+export const runtime="nodejs"; export const dynamic="force-dynamic";
+export function OPTIONS(request:NextRequest){return corsOptions(request);}
+export async function POST(request:NextRequest){try{const body=await request.json() as {inputMint?:string;outputMint?:string;amount?:string;slippageBps?:number;provider?:string};if(body.provider&&body.provider!=="jupiter")return corsJson(request,{error:"Only Jupiter executable quotes are enabled in v1; venue analytics remain read-only."},{status:400});if(!body.inputMint||!body.outputMint||!body.amount)return corsJson(request,{error:"inputMint, outputMint and amount are required"},{status:400});const quote=await new PowerChainDexClient().quoteJupiter({inputMint:body.inputMint,outputMint:body.outputMint,amountBaseUnits:BigInt(body.amount),slippageBps:body.slippageBps??100});return corsJson(request,{quote,execution:"wallet-signature-required",custody:false});}catch(error){return corsJson(request,{error:error instanceof Error?error.message:"quote failed"},{status:400});}}

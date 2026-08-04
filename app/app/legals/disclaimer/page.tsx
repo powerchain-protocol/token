@@ -1,0 +1,3 @@
+import { Footer } from "../../../components/footer";
+import { Header } from "../../../components/header";
+export default function LegalPage(){return <main><Header/><section className="legal-hero"><span className="eyebrow">PowerChain legal</span><h1>Digital asset disclaimer</h1><p>PWRC reference pricing, DEX quotes, and liquidity information are informational. They are not investment advice, guaranteed prices, exchange listings, or promises of liquidity. Review DISCLAIMER.md and deployment evidence before use.</p><div className="legal-links"><a href="/legals/terms">Terms</a><a href="/legals/privacy">Privacy</a><a href="/legals/cookies">Cookies</a><a href="/legals/disclaimer">Disclaimer</a></div></section><Footer/></main>}
